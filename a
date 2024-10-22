@@ -1,0 +1,34 @@
+        <button id="togglePacienteForm">Cadastrar Paciente</button>
+        <div id="cadastroPacienteFormContainer" class="hidden">
+            <form id="cadastroPacienteForm">
+                <input type="text" id="nomePaciente" placeholder="Nome" required>
+                <input type="text" id="emailPaciente" placeholder="Email" required>
+                <input type="text" id="telefonePaciente" placeholder="Telefone" required>
+                <input type="text" id="cpfPaciente" placeholder="CPF" required>
+                <input type="text" id="logradouro" placeholder="Logradouro" required>
+                <input type="text" id="bairro" placeholder="Bairro" required>
+                <input type="text" id="cep" placeholder="CEP" required>
+                <input type="text" id="cidade" placeholder="Cidade" required>
+                <input type="text" id="uf" placeholder="UF" required>
+                <input type="text" id="complemento" placeholder="Complemento">
+                <input type="text" id="numero" placeholder="Número" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <button id="togglePacienteForm">Atualizar Paciente</button>
+        <div id="cadastroPacienteFormContainer" class="hidden">
+            <form id="atualizarPacienteForm">
+                <input type="number" id="idPaciente" placeholder="ID" required>
+                <input type="text" id="nomePaciente" placeholder="Nome">
+                <input type="text" id="telefonePaciente" placeholder="Telefone">
+                <input type="text" id="logradouroPaciente" placeholder="Logradouro">
+                <input type="text" id="bairroPaciente" placeholder="Bairro">
+                <input type="text" id="cepPaciente" placeholder="CEP">
+                <input type="text" id="cidadePaciente" placeholder="Cidade">
+                <input type="text" id="ufPaciente" placeholder="UF">
+                <input type="text" id="complementoPaciente" placeholder="Complemento">
+                <input type="text" id="numeroPaciente" placeholder="Número">
+                <button type="submit">Atualizar</button>
+            </form>           
+        </div>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento Clínica</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .resultList {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clínica VollMed</h1>
+
+        <h2>Pacientes</h2>
+
+        <div id="pacienteList" class="resultList"></div>
+
+        <button id="btnListarPacientes">Listar Pacientes</button>
+
+        <button id="togglePacienteForm">Cadastrar Paciente</button>
+        <div id="cadastroPacienteFormContainer" class="hidden">
+            <form id="cadastroPacienteForm">
+                <input type="text" id="nomePaciente" placeholder="Nome" required>
+                <input type="text" id="emailPaciente" placeholder="Email" required>
+                <input type="text" id="telefonePaciente" placeholder="Telefone" required>
+                <input type="text" id="cpfPaciente" placeholder="CPF" required>
+                <input type="text" id="logradouro" placeholder="Logradouro" required>
+                <input type="text" id="bairro" placeholder="Bairro" required>
+                <input type="text" id="cep" placeholder="CEP" required>
+                <input type="text" id="cidade" placeholder="Cidade" required>
+                <input type="text" id="uf" placeholder="UF" required>
+                <input type="text" id="complemento" placeholder="Complemento">
+                <input type="text" id="numero" placeholder="Número" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <button id="toggleAtualizarPacienteForm">Atualizar Paciente</button>
+        <div id="atualizarPacienteFormContainer" class="hidden">
+            <form id="atualizarPacienteForm">
+                <input type="number" id="idPaciente" placeholder="ID" required>
+                <input type="text" id="nomePaciente" placeholder="Nome">
+                <input type="text" id="telefonePaciente" placeholder="Telefone">
+                <input type="text" id="logradouroPaciente" placeholder="Logradouro">
+                <input type="text" id="bairroPaciente" placeholder="Bairro">
+                <input type="text" id="cepPaciente" placeholder="CEP">
+                <input type="text" id="cidadePaciente" placeholder="Cidade">
+                <input type="text" id="ufPaciente" placeholder="UF">
+                <input type="text" id="complementoPaciente" placeholder="Complemento">
+                <input type="text" id="numeroPaciente" placeholder="Número">
+                <button type="submit">Atualizar</button>
+            </form>           
+        </div>
+
+        <h2>Excluir Paciente</h2>
+        <form id="excluirPacienteForm">
+            <input type="number" id="idExcluirPaciente" placeholder="ID do Paciente" required>
+            <button type="submit">Excluir</button>
+        </form>
+
+        <h2>Médicos</h2>
+
+        <div id="medicoList" class="resultList"></div>
+        <button id="btnListarMedicos">Listar Médicos</button>
+
+        <button id="toggleMedicoForm">Cadastrar Médico</button>
+        <div id="cadastroMedicoFormContainer" class="hidden">
+            <form id="cadastroMedicoForm">
+                <input type="text" id="nomeMedico" placeholder="Nome" required>
+                <input type="text" id="emailMedico" placeholder="Email" required>
+                <input type="text" id="telefoneMedico" placeholder="Telefone" required>
+                <input type="text" id="crmMedico" placeholder="CRM" required>
+                <input type="text" id="especialidadeMedico" placeholder="Especialidade" required>
+                <input type="text" id="logradouroMedico" placeholder="Logradouro" required>
+                <input type="text" id="bairroMedico" placeholder="Bairro" required>
+                <input type="text" id="cepMedico" placeholder="CEP" required>
+                <input type="text" id="cidadeMedico" placeholder="Cidade" required>
+                <input type="text" id="ufMedico" placeholder="UF" required>
+                <input type="text" id="complementoMedico" placeholder="Complemento">
+                <input type="text" id="numeroMedico" placeholder="Número" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <button id="toggleAtualizarMedicoForm">Atualizar Médico</button>
+        <div id="atualizarMedicoFormContainer" class="hidden">
+            <form id="atualizarMedicoForm">
+                <input type="number" id="idMedico" placeholder="ID" required>
+                <input type="text" id="nomeMedico" placeholder="Nome">
+                <input type="text" id="telefoneMedico" placeholder="Telefone">
+                <input type="text" id="logradouroMedico" placeholder="Logradouro">
+                <input type="text" id="bairroMedico" placeholder="Bairro">
+                <input type="text" id="cepMedico" placeholder="CEP">
+                <input type="text" id="cidadeMedico" placeholder="Cidade">
+                <input type="text" id="ufMedico" placeholder="UF">
+                <input type="text" id="complementoMedico" placeholder="Complemento">
+                <input type="text" id="numeroMedico" placeholder="Número">
+                <button type="submit">Atualizar</button>
+            </form>
+        </div>
+        
+
+        <h2>Excluir Médico</h2>
+        <form id="excluirMedicoForm">
+            <input type="number" id="idExcluirMedico" placeholder="ID do Médico" required>
+            <button type="submit">Excluir</button>
+        </form>
+
+        <h2>Agendar Consulta</h2>
+        <form id="agendarConsultaForm">
+            <input type="number" id="idPaciente" placeholder="ID do Paciente" required>
+            <input type="number" id="idMedico" placeholder="ID do Médico" required>
+            <input type="date" id="dataConsulta" required>
+            <button type="submit">Agendar</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Toggle para os formulários
+        document.getElementById('togglePacienteForm').addEventListener('click', function() {
+            const formContainer = document.getElementById('cadastroPacienteFormContainer');
+            formContainer.classList.toggle('hidden');
+        });
+
+        document.getElementById('toggleAtualizarPacienteForm').addEventListener('click', function() {
+            const formContainer = document.getElementById('atualizarPacienteFormContainer');
+            formContainer.classList.toggle('hidden');
+        });
+
+        document.getElementById('toggleMedicoForm').addEventListener('click', function() {
+            const formContainer = document.getElementById('cadastroMedicoFormContainer');
+            formContainer.classList.toggle('hidden');
+        });
+
+        document.getElementById('toggleAtualizarMedicoForm').addEventListener('click', function() {
+            const formContainer = document.getElementById('atualizarMedicoFormContainer');
+            formContainer.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
