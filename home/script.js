@@ -257,7 +257,6 @@ async function excluirMedico(event) {
         alert('Por favor, insira um ID válido.');
         return;
     }
-
     try {
         const response = await fetch(apiUrl, {
             method: 'DELETE',
@@ -265,7 +264,6 @@ async function excluirMedico(event) {
                 'Authorization': `Bearer ${token}` // Cabeçalho com o token
             }
         });
-
         if (response.ok) {
             alert('Médico excluído com sucesso!');
             listarMedicos() 
@@ -284,11 +282,10 @@ async function excluirMedico(event) {
 document.getElementById('excluirMedicoForm').addEventListener('submit', excluirMedico);
 
 
+
 // Função para atualizar paciente
 document.getElementById('atualizarPacienteForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evita o envio padrão do formulário
-
-    // Captura os dados do formulário
     const idPaciente = document.getElementById('idPaciente').value;
     const nome = document.getElementById('nomePaciente').value;
     const telefone = document.getElementById('telefonePaciente').value;
@@ -307,7 +304,7 @@ document.getElementById('atualizarPacienteForm').addEventListener('submit', asyn
         alert('Por favor, insira um ID válido.');
         return;
     }
-
+    
     try {
         const response = await fetch(apiUrl, {
             method: 'PUT', // Usar PUT para atualizar
@@ -316,6 +313,7 @@ document.getElementById('atualizarPacienteForm').addEventListener('submit', asyn
                 'Authorization': `Bearer ${token}` // Cabeçalho com o token
             },
             body: JSON.stringify({
+                id: id,
                 nome,
                 telefone,
                 endereco: {
@@ -335,6 +333,7 @@ document.getElementById('atualizarPacienteForm').addEventListener('submit', asyn
         }
 
         const data = await response.json();
+        alert('Paciente atualizado com sucesso!');
         document.getElementById('message').innerText = `Paciente ${data.nome} atualizado com sucesso!`;
     } catch (error) {
         document.getElementById('message').innerText = `Erro: ${error.message}`;
@@ -343,22 +342,20 @@ document.getElementById('atualizarPacienteForm').addEventListener('submit', asyn
 
 
 
+
 // Função para atualizar médico
 document.getElementById('atualizarMedicoForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evita o envio padrão do formulário
-
-    // Captura os dados do formulário
     const idMedico = document.getElementById('idMedico').value;
-    const nome = document.getElementById('nomeMedico').value; // Corrigido para o ID correto
-    const telefone = document.getElementById('telefoneMedico').value; // Corrigido para o ID correto
-    const logradouro = document.getElementById('logradouroMedico').value; // Corrigido para o ID correto
-    const bairro = document.getElementById('bairroMedico').value; // Corrigido para o ID correto
-    const cep = document.getElementById('cepMedico').value; // Corrigido para o ID correto
-    const cidade = document.getElementById('cidadeMedico').value; // Corrigido para o ID correto
-    const uf = document.getElementById('ufMedico').value; // Corrigido para o ID correto
-    const complemento = document.getElementById('complementoMedico').value; // Corrigido para o ID correto
-    const numero = document.getElementById('numeroMedico').value; // Corrigido para o ID correto
-
+    const nome = document.getElementById('nomeMedico').value;
+    const telefone = document.getElementById('telefoneMedico').value;
+    const logradouro = document.getElementById('logradouroMedico').value;
+    const bairro = document.getElementById('bairroMedico').value;
+    const cep = document.getElementById('cepMedico').value;
+    const cidade = document.getElementById('cidadeMedico').value;
+    const uf = document.getElementById('ufMedico').value;
+    const complemento = document.getElementById('complementoMedico').value;
+    const numero = document.getElementById('numeroMedico').value;
     const id = parseInt(idMedico, 10);
     const apiUrl = `http://localhost:8080/medicos/${id}`; // URL para a requisição
 
@@ -370,10 +367,11 @@ document.getElementById('atualizarMedicoForm').addEventListener('submit', async 
         const response = await fetch(apiUrl, {
             method: 'PUT', // Usar PUT ou PATCH para atualizar
             headers: {
-                'Content-Type': 'application/json', // Não esqueça de definir o Content-Type
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}` // Cabeçalho com o token
             },
             body: JSON.stringify({
+                id: id,
                 nome,
                 telefone,
                 endereco: {
@@ -391,8 +389,8 @@ document.getElementById('atualizarMedicoForm').addEventListener('submit', async 
         if (!response.ok) {
             throw new Error('Erro ao atualizar médico');
         }
-
         const data = await response.json();
+        alert(`Médico ${data.nome} atualizado com sucesso!`); // Adicionado o alert
         document.getElementById('message').innerText = `Médico ${data.nome} atualizado com sucesso!`;
     } catch (error) {
         document.getElementById('message').innerText = `Erro: ${error.message}`;
