@@ -58,6 +58,8 @@ button {
     cursor: pointer;
 }
 
+
+
 button:hover {
     background-color: #0056b3; /* Tom mais escuro ao passar o mouse */
 }
@@ -66,3 +68,5 @@ button:hover {
     margin-top: 20px;
     color: #d9534f; /* Cor da mensagem de erro */
 }
+
+
