@@ -58,22 +58,22 @@ async function listarMedicos() {
 document.getElementById('btnListarMedicos').addEventListener('click', listarMedicos);
 
 
+
 // Cadastro de Pacientes
 document.getElementById('cadastroPacienteForm').addEventListener('submit', async function (event) {
     event.preventDefault();
-    const nome = document.getElementById('nomePaciente').value;
-    const email = document.getElementById('emailPaciente').value;
-    const telefone = document.getElementById('telefonePaciente').value;
-    const cpf = document.getElementById('cpfPaciente').value;
-    const logradouro = document.getElementById('logradouro').value;
-    const bairro = document.getElementById('bairro').value;
-    const cep = document.getElementById('cep').value;
-    const cidade = document.getElementById('cidade').value;
-    const uf = document.getElementById('uf').value;
-    const complemento = document.getElementById('complemento').value;
-    const numero = document.getElementById('numero').value;
+    const nome = document.getElementById('nomePacienteCadastro').value;
+    const email = document.getElementById('emailPacienteCadastro').value;
+    const telefone = document.getElementById('telefonePacienteCadastro').value;
+    const cpf = document.getElementById('cpfPacienteCadastro').value;
+    const logradouro = document.getElementById('logradouroPaciente').value;
+    const bairro = document.getElementById('bairroPaciente').value;
+    const cep = document.getElementById('cepPaciente').value;
+    const cidade = document.getElementById('cidadePaciente').value;
+    const uf = document.getElementById('ufPaciente').value;
+    const complemento = document.getElementById('complementoPaciente').value;
+    const numero = document.getElementById('numeroPaciente').value;
 
-    // Validação dos campos obrigatórios
     if (!nome || !email || !telefone || !cpf || !logradouro || !bairro || !cep || !cidade || !uf || !numero) {
         document.getElementById('message').textContent = 'Por favor, preencha todos os campos obrigatórios.';
         return;
@@ -106,6 +106,7 @@ document.getElementById('cadastroPacienteForm').addEventListener('submit', async
         if (response.ok) {
             listarPacientes();
             document.getElementById('message').textContent = 'Paciente cadastrado com sucesso!';
+            alert('Paciente cadastrado com sucesso!');
         } else {
             const data = await response.json();
             document.getElementById('message').textContent = 'Erro: ' + data.message;
@@ -116,6 +117,8 @@ document.getElementById('cadastroPacienteForm').addEventListener('submit', async
 });
 
 
+
+
 // Cadastro de Médicos
 document.getElementById('cadastroMedicoForm').addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -124,15 +127,14 @@ document.getElementById('cadastroMedicoForm').addEventListener('submit', async f
     const telefone = document.getElementById('telefoneMedico').value;
     const crm = document.getElementById('crmMedico').value;
     const especialidade = document.getElementById('especialidadeMedico').value;
-    const logradouro = document.getElementById('logradouro').value;
-    const bairro = document.getElementById('bairro').value;
-    const cep = document.getElementById('cep').value;
-    const cidade = document.getElementById('cidade').value;
-    const uf = document.getElementById('uf').value;
-    const complemento = document.getElementById('complemento').value;
-    const numero = document.getElementById('numero').value;
+    const logradouro = document.getElementById('logradouroMedico').value;
+    const bairro = document.getElementById('bairroMedico').value;
+    const cep = document.getElementById('cepMedico').value;
+    const cidade = document.getElementById('cidadeMedico').value;
+    const uf = document.getElementById('ufMedico').value;
+    const complemento = document.getElementById('complementoMedico').value;
+    const numero = document.getElementById('numeroMedico').value;
 
-    // Validação dos campos obrigatórios
     if (!nome || !email || !telefone || !crm || !especialidade ||
         !logradouro || !bairro || !cep || !cidade || !uf || !numero) {
         document.getElementById('message').textContent = 'Por favor, preencha todos os campos obrigatórios.';
@@ -167,6 +169,7 @@ document.getElementById('cadastroMedicoForm').addEventListener('submit', async f
         if (response.ok) {
             listarMedicos();
             document.getElementById('message').textContent = 'Médico cadastrado com sucesso!';
+            alert('Médico cadastrado com sucesso!');
         } else {
             const data = await response.json();
             document.getElementById('message').textContent = 'Erro: ' + data.message;
@@ -176,35 +179,7 @@ document.getElementById('cadastroMedicoForm').addEventListener('submit', async f
     }
 });
 
-// Agendamento de Consultas
-document.getElementById('agendarConsultaForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
 
-    const idPaciente = document.getElementById('idPaciente').value;
-    const idMedico = document.getElementById('idMedico').value;
-    const dataConsulta = document.getElementById('dataConsulta').value;
-
-    try {
-        const response = await fetch(apiUrlConsultas, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ idPaciente, idMedico, dataConsulta })
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            document.getElementById('message').textContent = `Consulta agendada com sucesso! Detalhes: ${JSON.stringify(data)}`;
-        } else {
-            const data = await response.json();
-            document.getElementById('message').textContent = 'Erro: ' + data.message;
-        }
-    } catch (error) {
-        document.getElementById('message').textContent = 'Erro ao agendar consulta.';
-    }
-});
 
 
 
@@ -286,16 +261,16 @@ document.getElementById('excluirMedicoForm').addEventListener('submit', excluirM
 // Função para atualizar paciente
 document.getElementById('atualizarPacienteForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evita o envio padrão do formulário
-    const idPaciente = document.getElementById('idPaciente').value;
-    const nome = document.getElementById('nomePaciente').value;
-    const telefone = document.getElementById('telefonePaciente').value;
-    const logradouro = document.getElementById('logradouroPaciente').value;
-    const bairro = document.getElementById('bairroPaciente').value;
-    const cep = document.getElementById('cepPaciente').value;
-    const cidade = document.getElementById('cidadePaciente').value;
-    const uf = document.getElementById('ufPaciente').value;
-    const complemento = document.getElementById('complementoPaciente').value;
-    const numero = document.getElementById('numeroPaciente').value;
+    const idPaciente = document.getElementById('idPacienteAtualizar').value;
+    const nome = document.getElementById('nomePacienteAtualizar').value;
+    const telefone = document.getElementById('telefonePacienteAtualizar').value;
+    const logradouro = document.getElementById('logradouroPacienteAtualizar').value;
+    const bairro = document.getElementById('bairroPacienteAtualizar').value;
+    const cep = document.getElementById('cepPacienteAtualizar').value;
+    const cidade = document.getElementById('cidadePacienteAtualizar').value;
+    const uf = document.getElementById('ufPacienteAtualizar').value;
+    const complemento = document.getElementById('complementoPacienteAtualizar').value;
+    const numero = document.getElementById('numeroPacienteAtualizar').value;
 
     const id = parseInt(idPaciente, 10);
     const apiUrl = `http://localhost:8080/pacientes/${id}`; // URL para a requisição
@@ -304,7 +279,7 @@ document.getElementById('atualizarPacienteForm').addEventListener('submit', asyn
         alert('Por favor, insira um ID válido.');
         return;
     }
-    
+
     try {
         const response = await fetch(apiUrl, {
             method: 'PUT', // Usar PUT para atualizar
@@ -346,16 +321,16 @@ document.getElementById('atualizarPacienteForm').addEventListener('submit', asyn
 // Função para atualizar médico
 document.getElementById('atualizarMedicoForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evita o envio padrão do formulário
-    const idMedico = document.getElementById('idMedico').value;
-    const nome = document.getElementById('nomeMedico').value;
-    const telefone = document.getElementById('telefoneMedico').value;
-    const logradouro = document.getElementById('logradouroMedico').value;
-    const bairro = document.getElementById('bairroMedico').value;
-    const cep = document.getElementById('cepMedico').value;
-    const cidade = document.getElementById('cidadeMedico').value;
-    const uf = document.getElementById('ufMedico').value;
-    const complemento = document.getElementById('complementoMedico').value;
-    const numero = document.getElementById('numeroMedico').value;
+    const idMedico = document.getElementById('idMedicoAtualizar').value;
+    const nome = document.getElementById('nomeMedicoAtualizar').value;
+    const telefone = document.getElementById('telefoneMedicoAtualizar').value;
+    const logradouro = document.getElementById('logradouroMedicoAtualizar').value;
+    const bairro = document.getElementById('bairroMedicoAtualizar').value;
+    const cep = document.getElementById('cepMedicoAtualizar').value;
+    const cidade = document.getElementById('cidadeMedicoAtualizar').value;
+    const uf = document.getElementById('ufMedicoAtualizar').value;
+    const complemento = document.getElementById('complementoMedicoAtualizar').value;
+    const numero = document.getElementById('numeroMedicoAtualizar').value;
     const id = parseInt(idMedico, 10);
     const apiUrl = `http://localhost:8080/medicos/${id}`; // URL para a requisição
 
@@ -396,3 +371,58 @@ document.getElementById('atualizarMedicoForm').addEventListener('submit', async 
         document.getElementById('message').innerText = `Erro: ${error.message}`;
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Agendamento de Consultas
+document.getElementById('agendarConsultaForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const idPaciente = document.getElementById('idPaciente').value;
+    const idMedico = document.getElementById('idMedico').value;
+    const dataConsulta = document.getElementById('dataConsulta').value;
+
+    try {
+        const response = await fetch(apiUrlConsultas, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ idPaciente, idMedico, dataConsulta })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            document.getElementById('message').textContent = `Consulta agendada com sucesso! Detalhes: ${JSON.stringify(data)}`;
+        } else {
+            const data = await response.json();
+            document.getElementById('message').textContent = 'Erro: ' + data.message;
+        }
+    } catch (error) {
+        document.getElementById('message').textContent = 'Erro ao agendar consulta.';
+    }
+});
+
