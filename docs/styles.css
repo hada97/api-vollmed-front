@@ -4,8 +4,13 @@ body {
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Altura total da janela */
+    height: 90vh; /* Altura total da janela */
     margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #166e8b; /* Fundo azul claro */
+    margin: 0;
+    padding: 20px;
+    
 }
 
 .container {
@@ -14,37 +19,37 @@ body {
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Largura do container */
-    /* Não precisa de mais propriedades para centralizar */
+    width: 260px; /* Largura do container */
 }
 
-/* Estilos adicionais para o formulário e elementos */
+
+h1 {
+    color: #333;
+    font-size: 1.5em;
+  }
+
+
 form {
     display: flex;
     flex-direction: column;
 }
 
-
-input {
+input,button {
     margin: 10px 0;
-    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%; /* Ocupar toda a largura do container */
     box-sizing: border-box;
+    height: 34px; /* Ajuste a altura se necessário */
+    padding: 8px; /* Para o input */
 }
 
 button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    box-sizing: border-box;
+    background-color: #1c74d1; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    cursor: pointer; /* Mão ao passar o mouse */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #166e8b;
 }
