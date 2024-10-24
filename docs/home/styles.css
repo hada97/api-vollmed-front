@@ -34,7 +34,7 @@ form {
   margin-bottom: 20px;
 }
 
-input, button {
+input, button,.styled-select{
   width: 200px; /* Ajuste o valor conforme necessário */
   height: 34px; /* Ajuste a altura se necessário */
   padding: 8px; /* Para o input */
@@ -54,3 +54,13 @@ button:hover {
   background-color: #166e8b; /* Tom mais escuro ao passar o mouse */
 }
 
+
+.styled-select {
+  -webkit-appearance: none; /* Remove estilo padrão em navegadores WebKit */
+  -moz-appearance: none; /* Remove estilo padrão em Firefox */
+  appearance: none; /* Remove estilo padrão em navegadores modernos */
+  background-color: white; /* Cor de fundo do select */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Posição da seta */
+  padding-right: 30px; /* Espaço para a seta */
+}

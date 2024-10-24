@@ -246,14 +246,22 @@
           placeholder="ID da Consulta"
           required
         />
-        <button type="submit">Cancelar</button>
+        <select id="tipoCancelar" class="styled-select">
+          <option value="">Escolha o motivo</option>
+          <option value="medico">MEDICO_CANCELOU</option>
+          <option value="paciente">PACIENTE_DESISTIU</option>
+          <option value="outros">OUTROS</option>
+        </select>
+        <button type="submit">Enviar</button>
       </form>
+      
+
+      
     </div>
 
     <script src="script.js"></script>
 
     <script>
-      // Toggle para os formulários
       document
         .getElementById("togglePacienteForm")
         .addEventListener("click", function () {
@@ -299,6 +307,8 @@
           input.value = ""; // Limpa o valor se não estiver dentro do intervalo
         }
       });
+
+
     </script>
   </body>
 </html>

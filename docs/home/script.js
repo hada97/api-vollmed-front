@@ -384,7 +384,7 @@ document
     }
   });
 
-// Agendamento de Consultas // POST
+// Agendamento de Consultas
 document
   .getElementById("agendarConsultaForm")
   .addEventListener("submit", async function (event) {
@@ -405,9 +405,7 @@ document
 
       if (response.ok) {
         const data = await response.json();
-        alert(
-          `Consulta agendada com sucesso! Detalhes: ${JSON.stringify(data)}`
-        );
+        alert(`Consulta agendada com sucesso! ID: ${data.id}`);
       } else {
         const data = await response.json();
         alert("Erro: " + data.message);
@@ -418,31 +416,33 @@ document
   });
 
 
-
-// CancelaMENTO de Consultas 
+// Cancelamento de Consultas
 document
-  .getElementById("cancelarConsultaForm")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const idConsulta = document.getElementById("idConsultaCancelar").value; // ID da consulta a ser cancelada
+.getElementById("cancelarConsultaForm")
+.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  const idConsulta = document.getElementById("idConsultaCancelar").value;
+  const idMotivo = document.getElementById("idMotivoCancelar").value; // ID do motivo de cancelamento
 
-    try {
-      const response = await fetch(`${apiUrlConsultas}/${idConsulta}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+  try {
+    const response = await fetch(`${apiUrlConsultas}/${idConsulta}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ motivo: idMotivo }), // Enviando o motivo no corpo da requisição
+    });
 
-      if (response.ok) {
-        const data = await response.json();
-        alert(`Consulta cancelada com sucesso! Detalhes: ${JSON.stringify(data)}`);
-      } else {
-        const data = await response.json();
-        alert("Erro: " + data.message);
-      }
-    } catch (error) {
-      alert("Erro ao cancelar consulta.");
+    if (response.ok) {
+      const data = await response.json();
+      alert(`Consulta cancelada com sucesso!`);
+    } else {
+      const data = await response.json();
+      alert("Erro: " + data.message);
     }
-  });
+  } catch (error) {
+    alert("Erro ao cancelar consulta.");
+    console.error(error); // Log do erro para depuração
+  }
+});
