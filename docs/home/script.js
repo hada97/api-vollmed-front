@@ -416,3 +416,33 @@ document
       alert("Erro ao agendar consulta.");
     }
   });
+
+
+
+// CancelaMENTO de Consultas 
+document
+  .getElementById("cancelarConsultaForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const idConsulta = document.getElementById("idConsultaCancelar").value; // ID da consulta a ser cancelada
+
+    try {
+      const response = await fetch(`${apiUrlConsultas}/${idConsulta}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(`Consulta cancelada com sucesso! Detalhes: ${JSON.stringify(data)}`);
+      } else {
+        const data = await response.json();
+        alert("Erro: " + data.message);
+      }
+    } catch (error) {
+      alert("Erro ao cancelar consulta.");
+    }
+  });

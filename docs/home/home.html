@@ -19,9 +19,8 @@
   </head>
   <body>
     <h1>Clínica VollMed</h1>
-    <div class="container">
-      
 
+    <div class="container">
       <h2>Pacientes</h2>
 
       <div id="pacienteList" class="resultList"></div>
@@ -137,7 +136,6 @@
         </form>
       </div>
 
-      
       <form id="excluirPacienteForm">
         <input
           type="text"
@@ -235,13 +233,20 @@
           placeholder="ID do Paciente"
           required
         />
-        <input
-          type="text"
-          id="idMedicoConsulta"
-          placeholder="ID do Médico"
-        />
+        <input type="text" id="idMedicoConsulta" placeholder="ID do Médico" />
         <input type="datetime-local" id="dataConsulta" required />
         <button type="submit">Agendar</button>
+      </form>
+
+      <h2>Cancelar Consulta</h2>
+      <form id="cancelarConsultaForm">
+        <input
+          type="text"
+          id="idConsultaCancelar"
+          placeholder="ID da Consulta"
+          required
+        />
+        <button type="submit">Cancelar</button>
       </form>
     </div>
 
@@ -285,16 +290,15 @@
           formContainer.classList.toggle("hidden");
         });
 
-        const input = document.getElementById('dataConsulta');
-        input.addEventListener('change', () => {
-          const selectedDate = new Date(input.value);
-          const hours = selectedDate.getHours();
-          if (hours < 7 || hours > 17) {
-            alert('Por favor, escolha um horário entre 7h e 18h.');
-            input.value = ''; // Limpa o valor se não estiver dentro do intervalo
-          }
-        });
-
+      const input = document.getElementById("dataConsulta");
+      input.addEventListener("change", () => {
+        const selectedDate = new Date(input.value);
+        const hours = selectedDate.getHours();
+        if (hours < 7 || hours > 17) {
+          alert("Por favor, escolha um horário entre 7h e 18h.");
+          input.value = ""; // Limpa o valor se não estiver dentro do intervalo
+        }
+      });
     </script>
   </body>
 </html>
