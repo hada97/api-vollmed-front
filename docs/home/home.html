@@ -289,7 +289,7 @@
         input.addEventListener('change', () => {
           const selectedDate = new Date(input.value);
           const hours = selectedDate.getHours();
-          if (hours < 7 || hours > 18) {
+          if (hours < 7 || hours > 17) {
             alert('Por favor, escolha um horário entre 7h e 18h.');
             input.value = ''; // Limpa o valor se não estiver dentro do intervalo
           }
