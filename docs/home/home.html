@@ -239,7 +239,6 @@
           type="text"
           id="idMedicoConsulta"
           placeholder="ID do Médico"
-          required
         />
         <input type="datetime-local" id="dataConsulta" required />
         <button type="submit">Agendar</button>
@@ -285,6 +284,17 @@
           );
           formContainer.classList.toggle("hidden");
         });
+
+        const input = document.getElementById('dataConsulta');
+        input.addEventListener('change', () => {
+          const selectedDate = new Date(input.value);
+          const hours = selectedDate.getHours();
+          if (hours < 7 || hours > 18) {
+            alert('Por favor, escolha um horário entre 7h e 18h.');
+            input.value = ''; // Limpa o valor se não estiver dentro do intervalo
+          }
+        });
+
     </script>
   </body>
 </html>

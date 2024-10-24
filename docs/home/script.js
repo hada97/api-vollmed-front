@@ -400,7 +400,7 @@ document
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ idPaciente, idMedico, dataConsulta }),
+        body: JSON.stringify({ idPaciente, idMedico, data: dataConsulta }),
       });
 
       if (response.ok) {
