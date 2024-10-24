@@ -389,8 +389,8 @@ document
   .getElementById("agendarConsultaForm")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
-    const idPaciente = document.getElementById("idPaciente").value;
-    const idMedico = document.getElementById("idMedico").value;
+    const idPaciente = document.getElementById("idPacienteConsulta").value;
+    const idMedico = document.getElementById("idMedicoConsulta").value;
     const dataConsulta = document.getElementById("dataConsulta").value;
 
     try {
