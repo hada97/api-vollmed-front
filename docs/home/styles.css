@@ -1,72 +1,62 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ADD8E6; /* Fundo azul claro */
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #166e8b; /* Fundo azul claro */
+  margin: 0;
+  padding: 20px;
+  
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgb(218, 218, 218);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-family: 'Verdana', sans-serif; /* Mudando a fonte */
-    color: #333; /* Cor do texto */
-    font-size: 2em; /* Diminuindo o tamanho da fonte */
-    text-align: center; /* Centraliza o texto */
-    margin-bottom: 20px; /* Espaçamento abaixo do título */
+  font-family: "Verdana", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em; /* Aumentando o tamanho da fonte */
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra do texto */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  transition: transform 0.3s; /* Animação ao passar o mouse */
 }
 
 h2 {
-    color: #333;
+  color: #333;
+  font-size: 1em;
 }
 
 form {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-input[type="number"].id-input {
-    width: 100px;
-    padding: 5px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 46px; /* Definindo uma altura fixa */
+input, button {
+  width: 200px; /* Ajuste o valor conforme necessário */
+  height: 34px; /* Ajuste a altura se necessário */
+  padding: 8px; /* Para o input */
+  box-sizing: border-box; /* Para incluir padding e borda na largura total */
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
 }
-
-input[type="text"],
-input[type="email"],
-button
-{
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
 
 button {
-    background-color: #007bff; /* Botão azul */
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: #1c74d1; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  cursor: pointer; /* Mão ao passar o mouse */
 }
+
+
+
 
 
 
 button:hover {
-    background-color: #0056b3; /* Tom mais escuro ao passar o mouse */
+  background-color: #166e8b; /* Tom mais escuro ao passar o mouse */
 }
-
-#message {
-    margin-top: 20px;
-    color: #d9534f; /* Cor da mensagem de erro */
-}
-
 
