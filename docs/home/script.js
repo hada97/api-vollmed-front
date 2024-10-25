@@ -416,33 +416,67 @@ document
   });
 
 
+
 // Cancelamento de Consultas
 document
-.getElementById("cancelarConsultaForm")
-.addEventListener("submit", async function (event) {
-  event.preventDefault();
-  const idConsulta = document.getElementById("idConsultaCancelar").value;
-  const idMotivo = document.getElementById("idMotivoCancelar").value; // ID do motivo de cancelamento
+  .getElementById("cancelarConsultaForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
+    if (!motivoCancelar) {
+      alert("Por favor, escolha um motivo para o cancelamento.");
+      return;
+    }
+    
+    const idConsulta = document.getElementById("idConsultaCancelar").value;
+    const motivoCancelar = document.getElementById("motivoCancelar").value; // Valor da opção selecionada
+    const textoCancelar = document.getElementById("motivoCancelar").options[document.getElementById("motivoCancelar").selectedIndex].text; // Texto da opção
+
+    try {
+      const response = await fetch(`${apiUrlConsultas}/${idConsulta}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ motivo: textoCancelar }), // Enviando o texto do motivo
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(`Consulta cancelada com sucesso!`);
+      } else {
+        const data = await response.json();
+        alert("Erro: " + data.message);
+      }
+    } catch (error) {
+      alert("Erro ao cancelar consulta.");
+      console.error(error); // Log do erro para depuração
+    }
+  });
+
+
+// Listar consultas
+  document
+  .getElementById("btnListarConsultas")
+  .addEventListener("click", listarConsultas);
+
+async function listarConsultas() {
   try {
-    const response = await fetch(`${apiUrlConsultas}/${idConsulta}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ motivo: idMotivo }), // Enviando o motivo no corpo da requisição
+    const response = await fetch(`${apiUrlConsultas}/ativas`, {
+      headers: { Authorization: `Bearer ${token}` },
     });
-
+    const data = await response.json();
+    const consultaList = document.getElementById("consultaList");
+    consultaList.innerHTML = "";
     if (response.ok) {
-      const data = await response.json();
-      alert(`Consulta cancelada com sucesso!`);
-    } else {
-      const data = await response.json();
-      alert("Erro: " + data.message);
+      data.content.forEach((consulta) => {
+        const div = document.createElement("div");
+        div.textContent = `ID: ${consulta.id}, Paciente: ${consulta.paciente}, Medico: ${consulta.medico}, DATA: ${consulta.data}, Especialidade: ${consulta.especialidade}`;
+        medicoList.appendChild(div);
+      });
     }
   } catch (error) {
-    alert("Erro ao cancelar consulta.");
-    console.error(error); // Log do erro para depuração
+    alert("Ocorreu um erro ao tentar listar: " + error.message);
   }
-});
+}

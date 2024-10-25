@@ -238,6 +238,13 @@
         <button type="submit">Agendar</button>
       </form>
 
+      <h2>Listar Consultas</h2>
+
+      <div id="consultaList" class="consultaResultList"></div>
+      <button id="btnListarConsultas">Listar</button>
+
+      </form>
+
       <h2>Cancelar Consulta</h2>
       <form id="cancelarConsultaForm">
         <input
@@ -246,17 +253,17 @@
           placeholder="ID da Consulta"
           required
         />
-        <select id="tipoCancelar" class="styled-select">
+        <select id="motivoCancelar" class="styled-select">
           <option value="">Escolha o motivo</option>
           <option value="medico">MEDICO_CANCELOU</option>
           <option value="paciente">PACIENTE_DESISTIU</option>
           <option value="outros">OUTROS</option>
         </select>
         <button type="submit">Enviar</button>
+
       </form>
       
 
-      
     </div>
 
     <script src="script.js"></script>
