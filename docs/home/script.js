@@ -1,6 +1,6 @@
-const apiUrlPacientes = "http://localhost:8080/pacientes";
-const apiUrlMedicos = "http://localhost:8080/medicos";
-const apiUrlConsultas = "http://localhost:8080/consultas";
+const apiUrlPacientes = "https://vollmed.onrender.com/pacientes";
+const apiUrlMedicos = "https://vollmed.onrender.com/medicos";
+const apiUrlConsultas = "https://vollmed.onrender.com/consultas";
 const token = localStorage.getItem("token");
 
 
