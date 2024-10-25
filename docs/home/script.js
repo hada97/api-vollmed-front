@@ -461,7 +461,7 @@ document
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ motivo: motivoCancelar, id: id  }),
+        body: JSON.stringify({ motivo: motivoCancelar, idConsulta: id  }),
       });
 
       if (response.ok) {
