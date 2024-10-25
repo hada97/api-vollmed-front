@@ -17,7 +17,7 @@
         padding: 10px;
         border-radius: 5px;
       }
-      .consultaResultList{
+      .consultaResultList {
         background-color: rgb(192, 192, 192);
         margin-top: 5px;
         margin-bottom: 5px;
@@ -27,7 +27,7 @@
       }
       .resultList:hover,
       .consultaResultList:hover {
-      background-color: white; /* Um leve cinza ao passar o mouse */
+        background-color: white; /* Um leve cinza ao passar o mouse */
       }
     </style>
   </head>
@@ -62,12 +62,16 @@
             id="telefonePacienteCadastro"
             placeholder="Telefone"
             required
+            minlength="8"
+            maxlength="15"
           />
           <input
             type="text"
             id="cpfPacienteCadastro"
             placeholder="CPF"
             required
+            minlength="11"
+            maxlength="11"
           />
           <input
             type="text"
@@ -81,24 +85,40 @@
             placeholder="Bairro"
             required
           />
-          <input type="text" id="cepPaciente" placeholder="CEP" required />
+          <input
+            type="text"
+            id="cepPaciente"
+            placeholder="CEP"
+            minlength="9"
+            maxlength="9"
+            required
+          />
           <input
             type="text"
             id="cidadePaciente"
             placeholder="Cidade"
             required
           />
-          <input type="text" id="ufPaciente" placeholder="UF" required />
+          <input
+            type="text"
+            id="ufPaciente"
+            placeholder="UF"
+            required
+            minlength="2"
+            maxlength="2"
+          />
           <input
             type="text"
             id="complementoPaciente"
             placeholder="Complemento"
+            maxlength="10"
           />
           <input
             type="text"
             id="numeroPaciente"
             placeholder="Número"
             required
+            maxlength="5"
           />
           <button type="submit">Cadastrar</button>
         </form>
@@ -118,6 +138,7 @@
             type="text"
             id="telefonePacienteAtualizar"
             placeholder="Telefone"
+            maxlength="15"
           />
           <input
             type="text"
@@ -129,22 +150,36 @@
             id="bairroPacienteAtualizar"
             placeholder="Bairro"
           />
-          <input type="text" id="cepPacienteAtualizar" placeholder="CEP" />
+          <input
+            type="text"
+            id="cepPacienteAtualizar"
+            placeholder="CEP"
+            minlength="9"
+            maxlength="9"
+          />
           <input
             type="text"
             id="cidadePacienteAtualizar"
             placeholder="Cidade"
           />
-          <input type="text" id="ufPacienteAtualizar" placeholder="UF" />
+          <input
+            type="text"
+            id="ufPacienteAtualizar"
+            placeholder="UF"
+            maxlength="2"
+          />
           <input
             type="text"
             id="complementoPacienteAtualizar"
             placeholder="Complemento"
+            maxlength="10"
           />
           <input
             type="text"
             id="numeroPacienteAtualizar"
             placeholder="Número"
+            minlength="0"
+            maxlength="5"
           />
           <button type="submit">Atualizar</button>
         </form>
@@ -174,10 +209,21 @@
           <input
             type="text"
             id="telefoneMedico"
+            minlength="8"
+            maxlength="15"
             placeholder="Telefone"
             required
+            minlength="8"
+            maxlength="15"
           />
-          <input type="text" id="crmMedico" placeholder="CRM" required />
+          <input
+            type="text"
+            id="crmMedico"
+            placeholder="CRM"
+            minlength="6"
+            maxlength="6"
+            required
+          />
           <input
             type="text"
             id="especialidadeMedico"
@@ -191,11 +237,36 @@
             required
           />
           <input type="text" id="bairroMedico" placeholder="Bairro" required />
-          <input type="text" id="cepMedico" placeholder="CEP" required />
+          <input
+            type="text"
+            id="cepMedico"
+            placeholder="CEP"
+            required
+            minlength="9"
+            maxlength="9"
+          />
           <input type="text" id="cidadeMedico" placeholder="Cidade" required />
-          <input type="text" id="ufMedico" placeholder="UF" required />
-          <input type="text" id="complementoMedico" placeholder="Complemento" />
-          <input type="text" id="numeroMedico" placeholder="Número" required />
+          <input
+            type="text"
+            id="ufMedico"
+            placeholder="UF"
+            required
+            minlength="2"
+            maxlength="2"
+          />
+          <input
+            type="text"
+            id="complementoMedico"
+            placeholder="Complemento"
+            maxlength="10"
+          />
+          <input
+            type="text"
+            id="numeroMedico"
+            placeholder="Número"
+            required
+            maxlength="5"
+          />
           <button type="submit">Cadastrar</button>
         </form>
       </div>
@@ -209,6 +280,7 @@
             type="text"
             id="telefoneMedicoAtualizar"
             placeholder="Telefone"
+            maxlength="15"
           />
           <input
             type="text"
@@ -216,15 +288,31 @@
             placeholder="Logradouro"
           />
           <input type="text" id="bairroMedicoAtualizar" placeholder="Bairro" />
-          <input type="text" id="cepMedicoAtualizar" placeholder="CEP" />
+          <input
+            type="text"
+            id="cepMedicoAtualizar"
+            placeholder="CEP"
+            maxlength="9"
+          />
           <input type="text" id="cidadeMedicoAtualizar" placeholder="Cidade" />
-          <input type="text" id="ufMedicoAtualizar" placeholder="UF" />
+          <input
+            type="text"
+            id="ufMedicoAtualizar"
+            placeholder="UF"
+            maxlength="2"
+          />
           <input
             type="text"
             id="complementoMedicoAtualizar"
             placeholder="Complemento"
+            maxlength="10"
           />
-          <input type="text" id="numeroMedicoAtualizar" placeholder="Número" />
+          <input
+            type="text"
+            id="numeroMedicoAtualizar"
+            placeholder="Número"
+            maxlength="5"
+          />
           <button type="submit">Atualizar</button>
         </form>
       </div>
@@ -247,7 +335,12 @@
           placeholder="ID do Paciente"
           required
         />
-        <input type="text" id="idMedicoConsulta" placeholder="ID do Médico" required />
+        <input
+          type="text"
+          id="idMedicoConsulta"
+          placeholder="ID do Médico"
+          required
+        />
         <input type="datetime-local" id="dataConsulta" required />
         <button type="submit">Agendar</button>
       </form>
@@ -258,7 +351,6 @@
 
       <button id="btnListarConsultas">Listar</button>
 
-      </form>
       <h2>Cancelar Consulta</h2>
       <form id="cancelarConsultaForm">
         <input
@@ -268,15 +360,13 @@
           required
         />
         <select id="motivoCancelar" class="styled-select" required>
-        <option value="">Motivo</option>
-        <option value="MEDICO_CANCELOU">MÉDICO CANCELOU</option>
-        <option value="PACIENTE_DESISTIU">PACIENTE DESISTIU</option>
-        <option value="OUTROS">OUTROS</option>
+          <option value="">Motivo</option>
+          <option value="MEDICO_CANCELOU">Médico Cancelou</option>
+          <option value="PACIENTE_DESISTIU">Paciente Desistiu</option>
+          <option value="OUTROS">Outros</option>
         </select>
         <button type="submit">Enviar</button>
       </form>
-    
-
     </div>
 
     <script src="script.js"></script>
@@ -327,8 +417,6 @@
           input.value = ""; // Limpa o valor se não estiver dentro do intervalo
         }
       });
-
-
     </script>
   </body>
 </html>
