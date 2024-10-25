@@ -1,6 +1,6 @@
-const apiUrlPacientes = "https://vollmed.onrender.com/pacientes";
-const apiUrlMedicos = "https://vollmed.onrender.com/medicos";
-const apiUrlConsultas = "https://vollmed.onrender.com/consultas";
+const apiUrlPacientes = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/pacientes";
+const apiUrlMedicos = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/medicos";
+const apiUrlConsultas = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/consultas";
 const token = localStorage.getItem("token");
 
 
