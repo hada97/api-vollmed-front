@@ -3,6 +3,10 @@ const apiUrlMedicos = "http://localhost:8080/medicos";
 const apiUrlConsultas = "http://localhost:8080/consultas";
 const token = localStorage.getItem("token");
 
+
+document
+  .getElementById("btnListarPacientes")
+  .addEventListener("click", listarPacientes);
 // Função para listar pacientes
 async function listarPacientes() {
   try {
@@ -24,9 +28,7 @@ async function listarPacientes() {
   }
 }
 
-document
-  .getElementById("btnListarPacientes")
-  .addEventListener("click", listarPacientes);
+
 
 // Função para listar médicos
 async function listarMedicos() {
@@ -418,10 +420,6 @@ document
   });
 
 // Listar consultas
-document
-  .getElementById("btnListarConsultas")
-  .addEventListener("click", listarConsultas);
-
 async function listarConsultas() {
   try {
     const response = await fetch(`${apiUrlConsultas}/ativas`, {
@@ -440,8 +438,8 @@ async function listarConsultas() {
           minute: "2-digit",
           hour12: false, // Mantenha como 'false' para 24 horas
         };
-        const horaFormatada = dataConsulta.toLocaleTimeString("pt-BR", opcoes);// Formata a hora
-        const dataFormatada = dataConsulta.toLocaleDateString("pt-BR");// Formata a data
+        const horaFormatada = dataConsulta.toLocaleTimeString("pt-BR", opcoes); // Formata a hora
+        const dataFormatada = dataConsulta.toLocaleDateString("pt-BR"); // Formata a data
         div.textContent = `ID: ${consulta.id}, Paciente ID: ${consulta.idPaciente}, Medico ID: ${consulta.idMedico}, Data: ${dataFormatada} ${horaFormatada}, Especialidade: ${consulta.especialidade}`;
         consultaList.appendChild(div);
       });
@@ -450,6 +448,12 @@ async function listarConsultas() {
     alert("Ocorreu um erro ao tentar listar: " + error.message);
   }
 }
+
+document
+  .getElementById("btnListarConsultas")
+  .addEventListener("click", listarConsultas);
+
+
 
 // Cancelamento de Consultas
 document
