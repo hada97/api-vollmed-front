@@ -15,7 +15,7 @@ async function listarPacientes() {
     if (response.ok) {
       data.content.forEach((paciente) => {
         const div = document.createElement("div");
-        div.textContent = `ID: ${paciente.id}, Nome: ${paciente.nome}, Email: ${paciente.email}, Telefone: ${paciente.telefone}`;
+        div.textContent = `ID: ${paciente.id}, ${paciente.nome}, email: ${paciente.email}, Telefone: ${paciente.telefone}`;
         pacienteList.appendChild(div);
       });
     }
@@ -40,7 +40,7 @@ async function listarMedicos() {
     if (response.ok) {
       data.content.forEach((medico) => {
         const div = document.createElement("div");
-        div.textContent = `ID: ${medico.id}, Nome: ${medico.nome}, Email: ${medico.email}, CRM: ${medico.crm}, Especialidade: ${medico.especialidade}`;
+        div.textContent = `ID: ${medico.id}, ${medico.nome}, email: ${medico.email}, CRM: ${medico.crm}, Especialidade: ${medico.especialidade}`;
         medicoList.appendChild(div);
       });
     }
@@ -434,7 +434,15 @@ async function listarConsultas() {
     if (response.ok) {
       data.content.forEach((consulta) => {
         const div = document.createElement("div");
-        div.textContent = `Consulta ID: ${consulta.id}, Paciente ID: ${consulta.idPaciente}, Medico ID: ${consulta.idMedico}, DATA: ${consulta.data}, Especialidade: ${consulta.especialidade}`;
+        const dataConsulta = new Date(consulta.data); // Converte para um objeto Date
+        const opcoes = {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false, // Mantenha como 'false' para 24 horas
+        };
+        const horaFormatada = dataConsulta.toLocaleTimeString("pt-BR", opcoes);// Formata a hora
+        const dataFormatada = dataConsulta.toLocaleDateString("pt-BR");// Formata a data
+        div.textContent = `ID: ${consulta.id}, Paciente ID: ${consulta.idPaciente}, Medico ID: ${consulta.idMedico}, Data: ${dataFormatada} ${horaFormatada}, Especialidade: ${consulta.especialidade}`;
         consultaList.appendChild(div);
       });
     }
@@ -443,15 +451,17 @@ async function listarConsultas() {
   }
 }
 
-
 // Cancelamento de Consultas
 document
   .getElementById("cancelarConsultaForm")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const motivoCancelar = document.getElementById("motivoCancelar").value.toUpperCase();
-    const idConsultaCancelar = document.getElementById("idConsultaCancelar").value;
+    const motivoCancelar = document
+      .getElementById("motivoCancelar")
+      .value.toUpperCase();
+    const idConsultaCancelar =
+      document.getElementById("idConsultaCancelar").value;
     const id = parseInt(idConsultaCancelar, 10);
     const apiUrl = `${apiUrlConsultas}/${id}`;
     try {
@@ -461,7 +471,7 @@ document
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ motivo: motivoCancelar, idConsulta: id  }),
+        body: JSON.stringify({ motivo: motivoCancelar, idConsulta: id }),
       });
 
       if (response.ok) {
