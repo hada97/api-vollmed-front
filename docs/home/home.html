@@ -241,10 +241,10 @@
       <h2>Listar Consultas</h2>
 
       <div id="consultaList" class="consultaResultList"></div>
+
       <button id="btnListarConsultas">Listar</button>
 
       </form>
-
       <h2>Cancelar Consulta</h2>
       <form id="cancelarConsultaForm">
         <input
@@ -254,15 +254,14 @@
           required
         />
         <select id="motivoCancelar" class="styled-select">
-          <option value="">Escolha o motivo</option>
-          <option value="medico">MEDICO_CANCELOU</option>
-          <option value="paciente">PACIENTE_DESISTIU</option>
-          <option value="outros">OUTROS</option>
+        <option value="">Escolha</option>
+        <option value="MEDICO_CANCELOU">MÉDICO CANCELOU</option>
+        <option value="PACIENTE_DESISTIU">PACIENTE DESISTIU</option>
+        <option value="OUTROS">OUTROS</option>
         </select>
         <button type="submit">Enviar</button>
-
       </form>
-      
+    
 
     </div>
 

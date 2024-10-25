@@ -112,6 +112,7 @@ document
       if (response.ok) {
         listarPacientes();
         alert("Paciente cadastrado com sucesso!");
+        document.getElementById("cadastroPacienteForm").reset();
       } else {
         const data = await response.json();
         alert("Erro: " + data.message);
@@ -183,6 +184,7 @@ document
       if (response.ok) {
         listarMedicos();
         alert("Médico cadastrado com sucesso!");
+        document.getElementById("cadastroMedicoForm").reset();
       } else {
         const data = await response.json();
         alert("Erro: " + data.message);
@@ -415,49 +417,8 @@ document
     }
   });
 
-
-
-// Cancelamento de Consultas
-document
-  .getElementById("cancelarConsultaForm")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    if (!motivoCancelar) {
-      alert("Por favor, escolha um motivo para o cancelamento.");
-      return;
-    }
-    
-    const idConsulta = document.getElementById("idConsultaCancelar").value;
-    const motivoCancelar = document.getElementById("motivoCancelar").value; // Valor da opção selecionada
-    const textoCancelar = document.getElementById("motivoCancelar").options[document.getElementById("motivoCancelar").selectedIndex].text; // Texto da opção
-
-    try {
-      const response = await fetch(`${apiUrlConsultas}/${idConsulta}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ motivo: textoCancelar }), // Enviando o texto do motivo
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        alert(`Consulta cancelada com sucesso!`);
-      } else {
-        const data = await response.json();
-        alert("Erro: " + data.message);
-      }
-    } catch (error) {
-      alert("Erro ao cancelar consulta.");
-      console.error(error); // Log do erro para depuração
-    }
-  });
-
-
 // Listar consultas
-  document
+document
   .getElementById("btnListarConsultas")
   .addEventListener("click", listarConsultas);
 
@@ -467,16 +428,51 @@ async function listarConsultas() {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await response.json();
+    console.log(data);
     const consultaList = document.getElementById("consultaList");
     consultaList.innerHTML = "";
     if (response.ok) {
       data.content.forEach((consulta) => {
         const div = document.createElement("div");
-        div.textContent = `ID: ${consulta.id}, Paciente: ${consulta.paciente}, Medico: ${consulta.medico}, DATA: ${consulta.data}, Especialidade: ${consulta.especialidade}`;
-        medicoList.appendChild(div);
+        div.textContent = `Consulta ID: ${consulta.id}, Paciente ID: ${consulta.idPaciente}, Medico ID: ${consulta.idMedico}, DATA: ${consulta.data}, Especialidade: ${consulta.especialidade}`;
+        consultaList.appendChild(div);
       });
     }
   } catch (error) {
     alert("Ocorreu um erro ao tentar listar: " + error.message);
   }
 }
+
+
+// Cancelamento de Consultas
+document
+  .getElementById("cancelarConsultaForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const motivoCancelar = document.getElementById("motivoCancelar").value.toUpperCase();
+    const idConsultaCancelar = document.getElementById("idConsultaCancelar").value;
+    const id = parseInt(idConsultaCancelar, 10);
+    const apiUrl = `${apiUrlConsultas}/${id}`;
+    try {
+      const response = await fetch(apiUrl, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ motivo: motivoCancelar, id: id  }),
+      });
+
+      if (response.ok) {
+        alert("Consulta cancelada com sucesso!");
+        document.getElementById("cancelarConsultaForm").reset();
+      } else {
+        const errorMessage = await response.text();
+        alert(`Erro ao cancelar consulta: ${errorMessage}`);
+      }
+    } catch (error) {
+      alert("Erro ao cancelar consulta.");
+      console.error(error);
+    }
+  });
