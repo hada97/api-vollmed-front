@@ -3,11 +3,18 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
+    // Exibe o loading
+    let elem_preloader = document.getElementById("preloader");
+    let elem_loader = document.getElementById("loader");
+
+    elem_preloader.classList.remove("hidden");
+    elem_loader.classList.remove("hidden");
+
     const login = document.getElementById("login").value;
     const senha = document.getElementById("senha").value;
 
     try {
-      const response = await fetch("https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/login", {
+      const response = await fetch("http://localhost:8080/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,5 +36,9 @@ document
     } catch (error) {
       document.getElementById("message").textContent =
         "Erro ao realizar login.";
+    } finally {
+      // Remove o loading após a tentativa de login
+      elem_preloader.classList.add("hidden");
+      elem_loader.classList.add("hidden");
     }
   });
