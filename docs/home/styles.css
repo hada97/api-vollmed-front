@@ -1,40 +1,49 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #166e8b; /* Fundo azul claro */
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 90vh; /* Altura total da janela */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000; /* Fundo azul claro */
   margin: 0;
   padding: 20px;
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 900px;
   background: rgb(192, 192, 192);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+  justify-content: center;
+  align-items: center; /* Centraliza verticalmente */
 
-h1 {
-  font-family: "Verdana", sans-serif;
-  color: rgb(255, 255, 255);
-  font-size: 1.7em; /* Aumentando o tamanho da fonte */
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 10px; /* Espaçamento interno */
-  border-radius: 8px; /* Bordas arredondadas */
-  transition: transform 0.3s; /* Animação ao passar o mouse */
 }
 
 h2 {
-  color: #333;
-  font-size: 1em;
+  width: 200px; /* Ajuste o valor conforme necessário */
+  height: 34px; /* Ajuste a altura se necessário */
+  padding: 8px; /* Para o input */
+  box-sizing: border-box; /* Para incluir padding e borda na largura total */
+  border: 1px solid #a9a9a9; /* Borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
 }
 
 form {
   margin-bottom: 20px;
 }
 
-input, button,.styled-select{
+input,
+button,
+.styled-select {
   width: 200px; /* Ajuste o valor conforme necessário */
   height: 34px; /* Ajuste a altura se necessário */
   padding: 8px; /* Para o input */
@@ -44,16 +53,14 @@ input, button,.styled-select{
 }
 
 button {
-  background-color: #1c74d1; /* Cor de fundo do botão */
+  background-color: #4169e1; /* Cor de fundo do botão */
   color: white; /* Cor do texto do botão */
   cursor: pointer; /* Mão ao passar o mouse */
 }
 
-
 button:hover {
-  background-color: #166e8b; /* Tom mais escuro ao passar o mouse */
+  background-color: #230e7c; /* Tom mais escuro ao passar o mouse */
 }
-
 
 .styled-select {
   -webkit-appearance: none; /* Remove estilo padrão em navegadores WebKit */
@@ -63,4 +70,54 @@ button:hover {
   background-repeat: no-repeat;
   background-position: right 10px center; /* Posição da seta */
   padding-right: 30px; /* Espaço para a seta */
+}
+
+.hidden {
+  display: none;
+}
+
+.resultList,
+.consultaResultList {
+  background-color: white;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: 1px solid #d3d3d3;
+  padding: 14px;
+  border-radius: 5px;
+}
+
+.resultList:hover,
+.consultaResultList:hover {
+  background-color: white; /* Um leve cinza ao passar o mouse */
+}
+
+.title-container {
+  background-color: #d3d3d3; /* Cor de fundo suave */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 0px 0px; /* Espaçamento interno reduzido */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Centraliza o conteúdo */
+  margin: 5px; /* Espaçamento externo reduzido */
+  margin: 5px; /* Espaçamento externo reduzido */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 280px; /* Definindo a largura em pixels */
+  max-width: 100%;
+  height: 50px; /* Altura fixa em pixels */
+  display: flex; /* Usando flexbox para centralizar */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  margin-left: auto; /* Centraliza horizontalmente */
+  margin-right: auto; /* Centraliza horizontalmente */
+  border: 1px solid #a9a9a9; /* Borda mais visível */
+}
+
+.title-container:hover {
+  background-color: #a9a9a9;
+}
+
+.titlePg {
+  font-family: "Arial", sans-serif; /* Fonte limpa e profissional */
+  font-size: 1.2em;
+  color: #000000;
 }
