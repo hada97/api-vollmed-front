@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <h1>LOGIN</h1>
-      <form id="loginForm">
-        <input type="text" id="login" placeholder="Usuário" required />
-        <input type="password" id="senha" placeholder="Senha" required />
-        <button type="submit">Entrar</button>
-      </form>
+        <h1>LOGIN</h1>
+        <form id="loginForm">
+            <input type="text" id="login" placeholder="Usuário" required />
+            <input type="password" id="senha" placeholder="Senha" required />
+            <button type="submit" class="loginButton">Entrar</button>
+        </form>
+
+        <div class="preloader hidden" id="preloader">
+            <div class="loader" id="loader"></div>
+        </div>
     </div>
+
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
