@@ -1,6 +1,9 @@
-const apiUrlPacientes = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/pacientes";
-const apiUrlMedicos = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/medicos";
-const apiUrlConsultas = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/consultas";
+const apiUrlPacientes =
+  "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/pacientes";
+const apiUrlMedicos =
+  "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/medicos";
+const apiUrlConsultas =
+  "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/consultas";
 const token = localStorage.getItem("token");
 
 document
@@ -508,24 +511,28 @@ function toggleLoader(show) {
   }
 }
 
-
-
 function setMinTime() {
-  const input = document.getElementById('dataConsulta');
+  const input = document.getElementById("dataConsulta");
   const now = new Date();
   const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const day = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
 
   // Define o horário mínimo como 8h do dia atual
   const minDateTime = `${year}-${month}-${day}T08:00`;
-  input.setAttribute('min', minDateTime);
+  input.setAttribute("min", minDateTime);
 }
 
 // Chama a função ao carregar a página
 window.onload = setMinTime;
 
-
 function recarregarPagina() {
   location.reload();
+}
+
+function limparConteudo(id) {
+  const element = document.getElementById(id);
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
 }
