@@ -109,6 +109,7 @@ button:hover {
   margin-left: auto; /* Centraliza horizontalmente */
   margin-right: auto; /* Centraliza horizontalmente */
   border: 1px solid #a9a9a9; /* Borda mais visível */
+  cursor: pointer; 
 }
 
 .title-container:hover {
