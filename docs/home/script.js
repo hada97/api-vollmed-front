@@ -3,13 +3,13 @@ const apiUrlMedicos = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsi
 const apiUrlConsultas = "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/consultas";
 const token = localStorage.getItem("token");
 
-
 document
   .getElementById("btnListarPacientes")
   .addEventListener("click", listarPacientes);
 // Função para listar pacientes
 async function listarPacientes() {
   try {
+    toggleLoader(true);
     const response = await fetch(apiUrlPacientes, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -25,14 +25,15 @@ async function listarPacientes() {
     }
   } catch (error) {
     alert("Ocorreu um erro ao tentar listar: " + error.message);
+  } finally {
+    toggleLoader(false);
   }
 }
-
-
 
 // Função para listar médicos
 async function listarMedicos() {
   try {
+    toggleLoader(true);
     const response = await fetch(apiUrlMedicos, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -48,6 +49,8 @@ async function listarMedicos() {
     }
   } catch (error) {
     alert("Ocorreu um erro ao tentar listar: " + error.message);
+  } finally {
+    toggleLoader(false);
   }
 }
 
@@ -422,6 +425,7 @@ document
 // Listar consultas
 async function listarConsultas() {
   try {
+    toggleLoader(true);
     const response = await fetch(`${apiUrlConsultas}/ativas`, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -446,14 +450,14 @@ async function listarConsultas() {
     }
   } catch (error) {
     alert("Ocorreu um erro ao tentar listar: " + error.message);
+  } finally {
+    toggleLoader(false);
   }
 }
 
 document
   .getElementById("btnListarConsultas")
   .addEventListener("click", listarConsultas);
-
-
 
 // Cancelamento de Consultas
 document
@@ -490,3 +494,16 @@ document
       console.error(error);
     }
   });
+
+function toggleLoader(show) {
+  const elem_preloader = document.getElementById("preloader");
+  const elem_loader = document.getElementById("loader");
+
+  if (show) {
+    elem_preloader.classList.remove("hidden");
+    elem_loader.classList.remove("hidden");
+  } else {
+    elem_preloader.classList.add("hidden");
+    elem_loader.classList.add("hidden");
+  }
+}
