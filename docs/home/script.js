@@ -507,3 +507,20 @@ function toggleLoader(show) {
     elem_loader.classList.add("hidden");
   }
 }
+
+
+
+function setMinTime() {
+  const input = document.getElementById('dataConsulta');
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+
+  // Define o horário mínimo como 8h do dia atual
+  const minDateTime = `${year}-${month}-${day}T08:00`;
+  input.setAttribute('min', minDateTime);
+}
+
+// Chama a função ao carregar a página
+window.onload = setMinTime;
