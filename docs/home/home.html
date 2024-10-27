@@ -10,11 +10,13 @@
   <body>
     <div class="container">
       <div class="title-container">
-         <h1 onclick="recarregarPagina()" class="titlePg">Clínica Renova</h1>
+        <h1 onclick="recarregarPagina()" class="titlePg">Clínica Renova</h1>
       </div>
       <h2>Pacientes</h2>
       <div id="pacienteList" class="resultList"></div>
+
       <button id="btnListarPacientes">Listar Pacientes</button>
+
       <button id="togglePacienteForm">Cadastrar Paciente</button>
 
       <div id="cadastroPacienteFormContainer" class="hidden">
@@ -159,6 +161,10 @@
         </form>
       </div>
 
+      <button onclick="limparConteudo('pacienteList')" type="submit">
+        Limpar
+      </button>
+
       <form id="excluirPacienteForm">
         <input
           type="text"
@@ -291,6 +297,10 @@
         </form>
       </div>
 
+      <button onclick="limparConteudo('medicoList')" type="submit">
+        Limpar
+      </button>
+
       <form id="excluirMedicoForm">
         <input
           type="text"
@@ -324,6 +334,10 @@
       <div id="consultaList" class="consultaResultList"></div>
 
       <button id="btnListarConsultas">Listar</button>
+
+      <button onclick="limparConteudo('consultaList')" type="submit">
+        Limpar
+      </button>
 
       <form></form>
 
