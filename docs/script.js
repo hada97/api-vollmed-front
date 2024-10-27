@@ -14,7 +14,7 @@ document
     const senha = document.getElementById("senha").value;
 
     try {
-      const response = await fetch("http://localhost:8080/login", {
+      const response = await fetch("https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
