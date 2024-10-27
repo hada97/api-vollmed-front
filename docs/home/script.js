@@ -524,3 +524,8 @@ function setMinTime() {
 
 // Chama a função ao carregar a página
 window.onload = setMinTime;
+
+
+function recarregarPagina() {
+  location.reload();
+}
