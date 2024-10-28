@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciamento Clínica</title>
     <link rel="stylesheet" href="styles.css" />
-    <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="container">
@@ -173,6 +173,9 @@
           required
         />
         <button type="submit">Excluir</button>
+
+        <button type="button" id="btn-decrease" class="btnfont">Fonte -</button>
+        <button type="button" id="btn-increase" class="btnfont">Fonte +</button>
       </form>
 
       <h2>Médicos</h2>
@@ -331,7 +334,7 @@
 
       <h2>Listar Consultas</h2>
 
-      <div id="consultaList" class="consultaResultList"></div>
+      <div id="consultaList" class="resultList"></div>
 
       <button id="btnListarConsultas">Listar</button>
 
@@ -411,6 +414,27 @@
           input.value = ""; // Limpa o valor se não estiver dentro do intervalo
         }
       });
+
+      const divs = document.querySelectorAll(".resultList");
+      let fontSize = 14;
+
+      function updateFontSize() {
+        divs.forEach((div) => {
+          div.style.fontSize = fontSize + "px";
+        });
+      }
+
+      document.getElementById("btn-increase").addEventListener("click", () => {
+        fontSize += 2; // Aumenta o tamanho da fonte
+        updateFontSize();
+      });
+
+      document.getElementById("btn-decrease").addEventListener("click", () => {
+        fontSize = Math.max(10, fontSize - 2);
+        updateFontSize(); // Chama a função para aplicar o novo tamanho
+      });
+
+      updateFontSize(); // Chama inicialmente para definir o tamanho padrão
     </script>
   </body>
 </html>
