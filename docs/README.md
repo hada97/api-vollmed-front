@@ -30,11 +30,11 @@ Para começar a utilizar este projeto, siga as etapas abaixo:
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/hada97/api-vollmed-frontedn
+    git clone https://github.com/hada97/api-vollmed-front
     ```
 2. Navegue até o diretório do projeto:
     ```bash
-    cd api-vollmed-frontedn
+    cd api-vollmed-front
     ```
 
 3. Abra o arquivo `index.html` em seu navegador.
