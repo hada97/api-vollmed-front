@@ -63,8 +63,8 @@ button:hover {
 }
 
 .loader {
-  border: 16px solid #efeee8;
-  border-top: 16px solid #0032a0; /* Change the preloader color here */
+  border: 12px solid #efeee8;
+  border-top: 12px solid #0032a0; /* Change the preloader color here */
   border-radius: 50%;
   width: 120px;
   height: 120px;
