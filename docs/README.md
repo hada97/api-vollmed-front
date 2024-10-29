@@ -1,13 +1,12 @@
 ﻿#  Vollmed Full Stack
 
-##  Necessário Autenticação:
+## 💻 Autenticação Necessária:
 User: admin@
 Senha: admin
 [Acesse!](https://hada97.github.io/api-vollmed-front/)
 
-## 💻 Sobre o Projeto
 
-Este projeto é um Front end cliente para a API Vollmed, permitindo que os usuários busquem informações sobre pacientes, medicos e consultas.
+Este projeto é um Front End, que consome a API [Vollmed](https://github.com/hada97/vollmed-mysql), permitindo que os usuários busquem informações sobre pacientes, medicos e consultas.
 ## ⚙️ Funcionalidades
 
 - Seleção de diferentes endpoints da API.
