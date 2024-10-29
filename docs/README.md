@@ -2,7 +2,10 @@
 
 ## 💻 Sobre o Projeto
 
-[Acesse Login admin@ - senha admin](https://hada97.github.io/api-vollmed-front/)
+##  Necessário autenticação :
+User: admin@
+Senha: admin
+[Acesse!](https://hada97.github.io/api-vollmed-front/)
 
 Este projeto é um Front end cliente para a API Vollmed, permitindo que os usuários busquem informações sobre pacientes, medicos e consultas.
 ## ⚙️ Funcionalidades
