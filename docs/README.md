@@ -45,11 +45,11 @@ Para começar a utilizar este projeto, siga as etapas abaixo:
 
 5. ## 📸 Veja como ficou 
 
-![Interface de login](docs/img.jpg)
+![Interface de login](https://github.com/hada97/api-vollmed-front/blob/main/docs/img.png)
 
 6. ## 📸 Imagem do Sistema
 
-![Interface de Gerenciamento](docs/img2.jpg)
+![Interface de Gerenciamento](https://github.com/hada97/api-vollmed-front/blob/main/docs/img2.png)
 
 
 
