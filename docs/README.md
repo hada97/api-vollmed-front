@@ -14,17 +14,24 @@ Este projeto é o Front End, que consome a API [Vollmed](https://github.com/hada
 - Exibição dos dados 
 
 
-## 🛠 Tecnologias
-
-O projeto utiliza as seguintes tecnologias:
+## 🛠 Tecnologias Front:
 - **HTML**: Linguagem de Marcação de Hipertexto.
 - **CSS**: Linguagem de Estilo em Cascata para estilização.
 - **JavaScript**: Linguagem de programação para interatividade.
 
+ ## 🛠 Tecnologias Back:
+- **Java 17**: Linguagem de programação utilizada.
+- **Spring Boot**: Framework para desenvolvimento de aplicações Java.
+- **Maven**: Ferramenta de automação e gerenciamento de dependências.
+- **MySQL**: Banco de dados relacional.
+- **Swagger**: Ferramenta para definir, criar, documentar e consumir APIs REST.
+- **Docker**:  Plataforma que facilita a criação, distribuição e execução de aplicativos em contêineres.
+- **Azure**:  Plataforma de deploy em nuvem.
+
 
 ## 📝 Licença
 
-Este projeto é licenciado sob a Licença Aberta.
+Este projeto é licenciado sob a licença MIT.
 
 ## 🚀 Como Começar
 
