@@ -14,7 +14,7 @@ document
     const senha = document.getElementById("senha").value;
 
     try {
-      const response = await fetch("vollmed-git-dcemdudddthyazak.canadacentral-01.azurewebsites.net/login", {
+      const response = await fetch("https://vollmed-git-dcemdudddthyazak.canadacentral-01.azurewebsites.net/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
