@@ -1,10 +1,11 @@
-const apiUrlPacientes =
-  "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/pacientes";
-const apiUrlMedicos =
-  "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/medicos";
-const apiUrlConsultas =
-  "https://voll-hcdsf0cjf9bnb9ck.canadacentral-01.azurewebsites.net/consultas";
+const baseUrl = "vollmed-git-dcemdudddthyazak.canadacentral-01.azurewebsites.net";
 const token = localStorage.getItem("token");
+
+// Para acessar as URLs completas dos endpoints
+const apiUrlPacientes = `${baseUrl}/pacientes`;
+const apiUrlMedicos = `${baseUrl}/medicos`;
+const apiUrlConsultas = `${baseUrl}/consultas`;
+
 
 document
   .getElementById("btnListarPacientes")
