@@ -1,4 +1,4 @@
-const baseUrl = "vollmed-git-dcemdudddthyazak.canadacentral-01.azurewebsites.net";
+const baseUrl = "https://vollmed-git-dcemdudddthyazak.canadacentral-01.azurewebsites.net";
 const token = localStorage.getItem("token");
 
 // Para acessar as URLs completas dos endpoints
